@@ -19,6 +19,10 @@ from article import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^(?P<my_args>\d+)/$',views.detail,name='detail'),
-    url(r'^$',views.home),
+    url(r'^(?P<id>\d+)/$',views.detail,name='detail'),
+    url(r'^$',views.home,name='home'),
+    url(r'^archives/$',views.archives,name='archives'),
+    url(r'^tag(?P<tag>\w+)/$',views.search_tag,name='search_tag'),
+    url(r'^search/$',views.blog_search,name='search'),
+    url(r'^feed/$',views.RSSFeed(),name="RSS"),
 ]
